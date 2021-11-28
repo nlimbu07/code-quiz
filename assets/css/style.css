@@ -33,6 +33,7 @@ a {
 }
 
 .btn-all {
+    cursor: pointer;
     background-color: navy;
     color: whitesmoke;    
     padding: 5px;
@@ -49,3 +50,26 @@ a {
     display: grid;
     justify-content: center;    
 }
+
+.btn {
+    background-color: navy;
+    color: whitesmoke;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 2px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(201, 38, 201);
+}
+
+#answers {    
+    display: grid;
+    justify-content: center;
+}
+
+#question {
+    text-align: center;    
+}
+
