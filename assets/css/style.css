@@ -1,0 +1,41 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    font-size: larger;
+}
+
+a {
+    text-decoration: none;
+}
+
+.scores-board {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+}
+
+#time {
+    position:absolute;
+    top: 0;
+    right: 10px;
+    font-size: 20px;    
+}
+
+#message {
+    text-align: center;
+}
+
+.start {
+    text-align: center;
+}
+
+.btn-all {
+    background-color: blue;
+    color: whitesmoke;    
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+}
