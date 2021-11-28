@@ -33,9 +33,19 @@ a {
 }
 
 .btn-all {
-    background-color: blue;
+    background-color: navy;
     color: whitesmoke;    
     padding: 5px;
     border-radius: 5px;
     font-size: 15px;
+    margin: 2.5px;
+}
+
+.btn-all:hover {
+   background-color: rgb(201, 38, 201);
+}
+
+#highscore-div {
+    display: grid;
+    justify-content: center;    
 }
