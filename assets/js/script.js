@@ -12,14 +12,14 @@ var questionEl = document.querySelector('#question');
 var currentQuestionIndex = 0;
 var score = 0;
 var seconds = 60;
-var storedScores;
+var highScores;
 var scoreList = [];
 
 function startQuiz() {
   var timerInterval = setInterval(function () {
     seconds--;
     timer.textContent = 'Timer: ' + seconds;
-
+    // time checker
     if (seconds === 0) {
       clearInterval(timerInterval);
       quizEnd();
@@ -44,7 +44,7 @@ function getQuestion() {
 }
 
 function quizEnd() {
-  var scoreTag = document.createElement('h1');
+  var scoreTag = document.createElement('h2');
   scoreTag.id = 'score';
   var inputTag = document.createElement('input');
   inputTag.id = 'input-field';
@@ -59,23 +59,23 @@ function quizEnd() {
   message.remove();
 
   questionEl.textContent = 'All Done!';
-  document.body.children[1].appendChild(scoreTag);
-  document.getElementById('score').textContent = 'Your final score: ' + score;
-  document.body.children[1].appendChild(inputTag);
+  document.body.appendChild(scoreTag);
+  scoreTag.textContent = 'Your final score: ' + score;
+  document.body.appendChild(inputTag);
   submitBtn.textContent = 'Submit';
-  document.body.children[1].appendChild(submitBtn);
+  document.body.appendChild(submitBtn);
 
   submitBtn.addEventListener('click', function (event) {
     event.preventDefault();
     var highScoreText = new Object();
     highScoreText.name = inputTag.value.trim();
     highScoreText.newScore = score;
-    storedScores(highScoreText);
+    saveHighScore(highScoreText);
     window.location.href = 'scores.html';
   });
 }
 
-function storeScores(highScoreText) {
+function saveHighScore(highScoreText) {
   tempArray = JSON.parse(localStorage.getItem('scores'));
   if (tempArray === null) {
     scoreList.push(highScoreText);
@@ -86,13 +86,8 @@ function storeScores(highScoreText) {
   }
 }
 
-startBtnEl.addEventListener('click', function () {
-  messageEl.textContent = '';
-});
-startBtnEl.addEventListener('click', startQuiz);
-startBtnEl.addEventListener('click', getQuestion);
-
 choice1.addEventListener('click', function () {
+  // check if user answer is correct or wrong
   if (
     questions[currentQuestionIndex]['choices'][0] ===
     questions[currentQuestionIndex]['answer']
@@ -101,13 +96,16 @@ choice1.addEventListener('click', function () {
     score++;
   } else {
     messageEl.textContent = 'Wrong!';
+    // penalize time
     seconds -= 10;
   }
+  // next question
   currentQuestionIndex++;
   getQuestion();
 });
 
 choice2.addEventListener('click', function () {
+  // check if user answer is correct or wrong
   if (
     questions[currentQuestionIndex]['choices'][1] ===
     questions[currentQuestionIndex]['answer']
@@ -116,13 +114,16 @@ choice2.addEventListener('click', function () {
     score++;
   } else {
     messageEl.textContent = 'Wrong!';
+    // penalize time
     seconds -= 10;
   }
+  // next question
   currentQuestionIndex++;
   getQuestion();
 });
 
 choice3.addEventListener('click', function () {
+  // check if user answer is correct or wrong
   if (
     questions[currentQuestionIndex]['choices'][2] ===
     questions[currentQuestionIndex]['answer']
@@ -131,13 +132,16 @@ choice3.addEventListener('click', function () {
     score++;
   } else {
     messageEl.textContent = 'Wrong!';
+    // penalize time
     seconds -= 10;
   }
+  // next question
   currentQuestionIndex++;
   getQuestion();
 });
 
 choice4.addEventListener('click', function () {
+  // check if user answer is correct or wrong
   if (
     questions[currentQuestionIndex]['choices'][3] ===
     questions[currentQuestionIndex]['answer']
@@ -146,8 +150,21 @@ choice4.addEventListener('click', function () {
     score++;
   } else {
     messageEl.textContent = 'Wrong!';
+    // penalize time
     seconds -= 10;
   }
+  // next question
   currentQuestionIndex++;
   getQuestion();
 });
+
+// hide start screen
+startBtnEl.addEventListener('click', function () {
+  messageEl.textContent = '';
+});
+
+// quiz starts
+startBtnEl.addEventListener('click', startQuiz);
+
+// display questions
+startBtnEl.addEventListener('click', getQuestion);

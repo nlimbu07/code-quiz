@@ -1,5 +1,5 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
@@ -26,6 +26,11 @@ a {
 
 #message {
     text-align: center;
+    position: relative;
+    font-size: large;
+    top: 150px;
+    margin: 25px;
+    margin-top: 4px solid   rgba(68, 88, 119, 1);
 }
 
 .start {
@@ -46,17 +51,13 @@ a {
    background-color: rgb(201, 38, 201);
 }
 
-#highscore-div {
-    display: grid;
-    justify-content: center;    
-}
 
 .btn {
     background-color: navy;
     color: whitesmoke;
     border-radius: 5px;
-    font-size: 20px;
-    margin: 2px;
+    font-size: 25px;
+    margin: 2px;    
 }
 
 .btn:hover {
@@ -66,10 +67,31 @@ a {
 
 #answers {    
     display: grid;
-    justify-content: center;
+    justify-content: center;    
 }
 
 #question {
     text-align: center;    
+}
+
+.container, .start {
+    position: relative;
+    top: 150px;
+}
+
+/* Score-board */
+tr, td {
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+#highscore-div {
+    display: grid;
+    justify-content: center;
+    margin: 25px;  
+      
 }
 
