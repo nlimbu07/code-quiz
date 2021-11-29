@@ -2,6 +2,10 @@
 
 A combination of multiple-choice questions and interactive challenges. For this challenge, a timed code quiz that's made up of multiple-choice questions.
 
+## Description
+
+A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges.
+
 ## User Story
 
 AS A coding boot camp student
@@ -27,7 +31,3 @@ SO THAT I can gauge my progress compared to my peers
 - THEN the game is over
 - WHEN the game is over
 - THEN I can save my initials and score
-
-## Contribution
-
-Made with ❤️ by Niraj Limbu
