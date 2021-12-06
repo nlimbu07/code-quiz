@@ -2,21 +2,25 @@
 
 A combination of multiple-choice questions and interactive challenges. For this challenge, a timed code quiz that's made up of multiple-choice questions.
 
+![screenshot of application](./assets/images/image.png)
+
+### [Deployed Application](https://nlimbu07.github.io/code-quiz/)
+
 ## Description
 
 A typical coding assessment is a combination of multiple-choice questions and interactive coding challenges.
-
-## User Story
-
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
 
 ## Build With
 
 - HTML
 - CSS
 - JavaScript
+
+## User Story
+
+AS A coding boot camp student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
 
 ## Acceptance Criteria
 
