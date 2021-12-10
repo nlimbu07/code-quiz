@@ -12,6 +12,7 @@ var questionEl = document.querySelector('#question');
 var currentQuestionIndex = 0;
 var score = 0;
 var seconds = 60;
+var panalty = 10;
 var highScores;
 var scoreList = [];
 
@@ -20,11 +21,10 @@ function startQuiz() {
     seconds--;
     timer.textContent = 'Timer: ' + seconds;
     // time checker
-    if (seconds === 0) {
+    if (seconds <= 0) {
       clearInterval(timerInterval);
       quizEnd();
-    } else if (currentQuestionIndex === questions.length) {
-      clearInterval(timerInterval);
+      timer.textContent = 'OOOPS! OUT OF TIME!';
     }
   }, 1000);
   return score;
@@ -49,7 +49,7 @@ function quizEnd() {
   var inputTag = document.createElement('input');
   inputTag.id = 'input-field';
   var submitBtn = document.createElement('button');
-  score += seconds * 0.1;
+
   // hide question section
   choice1.remove();
   choice2.remove();
@@ -97,7 +97,7 @@ choice1.addEventListener('click', function () {
   } else {
     messageEl.textContent = 'Wrong!';
     // penalize time
-    seconds -= 10;
+    seconds = seconds - panalty;
   }
   // next question
   currentQuestionIndex++;
@@ -115,7 +115,7 @@ choice2.addEventListener('click', function () {
   } else {
     messageEl.textContent = 'Wrong!';
     // penalize time
-    seconds -= 10;
+    seconds = seconds - panalty;
   }
   // next question
   currentQuestionIndex++;
@@ -133,7 +133,7 @@ choice3.addEventListener('click', function () {
   } else {
     messageEl.textContent = 'Wrong!';
     // penalize time
-    seconds -= 10;
+    seconds = seconds - panalty;
   }
   // next question
   currentQuestionIndex++;
@@ -151,7 +151,7 @@ choice4.addEventListener('click', function () {
   } else {
     messageEl.textContent = 'Wrong!';
     // penalize time
-    seconds -= 10;
+    seconds = seconds - panalty;
   }
   // next question
   currentQuestionIndex++;
